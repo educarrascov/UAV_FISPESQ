@@ -111,7 +111,7 @@ La Figura 8, ilustra una simulación en el software Webots, enfocada en la estab
 Para llevar a cabo la experimentación, se utiliza la metodología de Diseño de Experimentos , con lo cual, se realiza un conjunto de pruebas con el objetivo de generar datos que permitan validar el modelo. 
 Bajo el escenario de experimentación de este trabajo, la métrica de salida utilizada es el Promedio de Tiempo de Inspección (PTI), la cual corresponde al tiempo promedio en que un agente esclavo (drone) realiza una inspección sobre un agente pasivo (embarcación pesquera). 
 
-PTI =tiempo total de vuelo / cantidad total de embarcaciones reconocidas
+$$ PTI = \frac{t_{\text{total vuelo}}}{N} $$
 
 Esta métrica se ve influenciada por las siguientes variables: cantidad de embarcaciones, cantidad de drones y probabilidad de falla (en los drones), permitiendo analizar cómo estos parámetros y sus variaciones impactan la métrica de salida (PTI).
 El número de réplicas es la cantidad de veces que se repite el experimento con cada combinación de factores y representa el tamaño de la muestra experimental, para este caso, la operación combinatoria de 30 réplicas genera 810 experimentos, los cuales fueron simulados a través de un software.
