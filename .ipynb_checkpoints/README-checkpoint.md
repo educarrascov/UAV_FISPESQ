@@ -33,12 +33,12 @@ El uso de vehículos autónomos, tanto aéreos como terrestres, se ha convertido
 En términos de modelos de automatización, se destacan dos enfoques principales: centralizado y distribuido. El modelo centralizado se basa en la existencia de un agente maestro de nivel superior que planifica y asigna tareas a agentes esclavos de nivel inferior. Estos agentes esclavos, interactúan con elementos pasivos del sistema, como pueden ser las embarcaciones pesqueras. Aunque este modelo centralizado es eficiente en cuanto a la rapidez de transmisión de instrucciones, su dependencia de una unidad central de proceso significa que cualquier falla en ésta, puede interrumpir sus operaciones.
 Por otro lado, el enfoque distribuido consiste en múltiples agentes que colaboran entre sí. Estos agentes, al no poseer la capacidad o la información completa para resolver el problema por sí solos, deben trabajar conjuntamente para generar un plan y coordinar sus acciones. Aunque cada agente en un sistema distribuido es más complejo, al tener que tomar decisiones de manera colaborativa, este enfoque se considera más robusto. La ausencia de un único punto de fallo central reduce significativamente el riesgo de que el sistema completo falle.
 
-<img src="texto/Picture1.png" align="center" width = "500px"/>
+ 
 Figura 1: Gráfico que representa el enfoque centralizado y distribuido.
 
 Para la implementación de estos enfoques, existen características que son comunes, las cuales consisten en: sensar (Sense) que involucra recolectar información del entorno en el cual se desenvuelve el agente, planificar (Plan) que determina las tareas que se llevarán a cabo para cumplir un objetivo en base a su motivación y actuar (Act) que consiste en realizar las acciones planificadas; es que en este contexto, se pueden distinguir las diferencias entre los paradigmas que afecta principalmente a la fase planificar, acerca del cómo se procesa la información sensorial y las necesidades de generar un entorno en función de mapas de reconocimiento o visión del mundo real con la información disponible.
 
-<img src="texto/Picture2.png" align="center" width = "500px"/> 
+ 
 Figura 2: Gráfico de tipologías de control autónomos y su relación con los diferentes paradigmas.
 
 En el campo de la inteligencia artificial aplicada a sistemas autónomos, se reconocen tres paradigmas principales: deliberativo, híbrido y reactivo.
@@ -47,7 +47,7 @@ El enfoque deliberativo se caracteriza por requerir una representación completa
 Por otro lado, el enfoque híbrido combina elementos reactivos y deliberativos, logrando un equilibrio entre la respuesta a estímulos inmediatos y la planificación basada en modelos detallados del entorno. Esta arquitectura es particularmente útil en entornos donde la recepción de señales como el GPS es limitada o nula. Sin embargo, su implementación puede resultar excesiva para aplicaciones en ambientes abiertos.
 Finalmente, el enfoque reactivo se destaca por su capacidad de respuesta rápida y adaptabilidad en entornos dinámicos. En el ámbito militar, se evidencia en el uso de vehículos marítimos no tripulados, robots terrestres equipados con LIDAR para la detección de explosivos, entre otros. Este modelo no requiere una representación detallada del mundo, sino que se enfoca en responder de manera eficiente a estímulos específicos del entorno. 
 
-<img src="texto/Picture3.png" align="center" width = "500px"/> 
+ 
 Figura 3: Espectro de acción en sistema de control autónomo
 
 La arquitectura reactiva, se destaca por su capacidad de respuesta rápida. Al subdividir el comportamiento en capas jerárquicas, con tareas de sobrevivencia en niveles inferiores y funciones más complejas en los superiores, siendo ideal para entornos dinámicos con objetos en movimiento. Aunque puede tener limitaciones en la resolución de problemas complejos o en el mapeo detallado, su ventaja principal radica en la habilidad/agilidad para interactuar en tiempo real, como es el caso con las embarcaciones pesqueras en movimiento.
@@ -56,7 +56,7 @@ La arquitectura reactiva, se destaca por su capacidad de respuesta rápida. Al s
  # Diseño de un Sistema Multi-Agente Centralizado:
 Para el diseño del sistema se seleccionó un enfoque centralizado de 3 niveles que se presentan en el diagrama siguiente. 
 
-<img src="texto/Picture4.png" align="center" width = "500px"/> 
+ 
 Figura 4:  Esquema sistema Multi-agente centralizado de planificación de rutas
 
 En la arquitectura propuesta para el sistema de monitoreo con UAVs, se observan los tres niveles jerárquicos: el agente maestro, los agentes esclavos y los agentes pasivos. El agente maestro, en el nivel superior, detecta embarcaciones dentro de su alcance de radar y generar rutas de recorrido eficientes. Utiliza el algoritmo más cercano primero para optimizar las rutas y las asigna a los agentes esclavos para su ejecución.
@@ -64,7 +64,7 @@ Los agentes esclavos, ubicados en el segundo nivel, comparten características y
 El último nivel, los agentes pasivos, son los elementos del sistema que no participan activamente en la toma de decisiones.
 Esta estructura jerárquica centralizada ofrece múltiples ventajas. Proporciona tiempos de respuesta rápidos para la emisión de comandos y facilita la optimización de los algoritmos de control, ya que solo se requiere actualizarlos en la unidad central de procesamiento.
 
-<img src="texto/Picture5.png" align="center" width = "500px"/> 
+ 
 Figura 5:  Diagrama arquitectura Subsumption para agentes esclavos
 
 La Figura 5 representa el ciclo sensar-controlar-actuar que se lleva a cabo en los agentes esclavos del sistema, mostrando cómo estos interactúan dinámicamente con el entorno. Este ciclo comienza en la capa sensar, donde los agentes esclavos recopilan información sobre su entorno inmediato.
@@ -76,18 +76,17 @@ El ciclo sensar-controlar-actuar es esencial para el funcionamiento autónomo y 
 La implementación del diseño se basa en un agente maestro representado por una torre de control ubicada en un patrullero, integrada a uno de los radares de navegación de la Unidad, de manera de detectar las embarcaciones pesqueras, determinar su distancia y compartir esta información a la unidad central de procesamiento. 
 Los agentes esclavos están representados por agentes UAV, que son desplegados desde el buque. 
 
-<img src="texto/Picture6.png" align="center" width = "500px"/> 
+ 
 Figura 6:  Diagrama conceptual del sistema propuesto al Proceso de Monitorización y Fiscalización Pesquera
 	
 Con intención de comprobar la factibilidad, analizar las posibilidades del sistema y estudiar el comportamiento bajo diferentes circunstancias, se ha utilizado Simulación de Sistemas Basados en Agentes. 	
 En cada paso de la simulación, el agente maestro identifica la posición de las embarcaciones pesqueras y genera rutas específicas para cada agente esclavo. Estos agentes esclavos se dirigen hacia los agentes pasivos, y mediante un sistema de reconocimiento, evalúan la probabilidad de que presenten características de interés para la inspección. Las rutas se ajustan continuamente según el movimiento de las embarcaciones, permitiendo reasignar drones para inspeccionar embarcaciones más cercanas si se presentan cambios en su proximidad.
 
-<img src="texto/Picture7.png" align="center" width = "500px"/> 
+ 
 Figura 7:  Gráfica del Sistema Basado en Agentes simulado en Software Netlogo.
 
 La Figura 7, representa la simulación del sistema en Netlogo, muestra cinco drones con restricciones operativas específicas en alcance y batería, simbolizadas por porcentajes que indican la autonomía restante. Los drones dejan una estela que representa la ruta seguida y las embarcaciones que han sido identificadas con un grado de criticidad asignado. Además, un círculo punteado alrededor de la torre señala el alcance máximo del radar, definiendo el área operativa. Las embarcaciones que están más allá de este límite quedan fuera de la capacidad de intervención de los drones. 
-
-<img src="texto/Picture8.png" align="center" width = "500px"/>    
+ 
 Figura 8: Gráfica de simulaciones de navegación, reconocimiento y evaluación en software Webots.
 
 La Figura 8, ilustra una simulación en el software Webots, enfocada en la estabilización de un dron. Se modelan los 6 grados de libertad involucrados en su maniobra y equilibrio en sus ejes. La simulación incorpora también capas de programación que procesan imágenes para evaluar embarcaciones. Este análisis de imágenes ayuda a determinar si una embarcación debe ser fiscalizada, basándose en criterios predefinidos que identifican potenciales amenazas.
@@ -106,12 +105,11 @@ Obtenido el resultado de los experimentos y la consecuente base de datos, se uti
 Analizado lo anterior, se obtiene que el Promedio de Tiempo de Inspección de un modelo de drones es de 75.58 segundos, es decir, en promedio un drone se tarda 1.26 minutos en inspeccionar una embarcación pesquera en un radio limitado al alcance de radar de la Unidad. 
 En el siguiente gráfico se observan los efectos generados sobre la media de esta métrica por cada factor y niveles definidos.
 
-<img src="texto/Picture9.png" align="center" width = "500px"/> 
+ 
 Figura 9:  Gráfica de efectos principales sobre el Promedio de Tiempo de Inspección.
 
 La Figura 9 muestra cómo distintas variables afectan al PTI. Observamos que a medida que aumenta la cantidad de embarcaciones, el PTI disminuye, lo cual indica una mayor eficiencia. La probabilidad de falla de los drones muestra un leve incremento en el PTI, sugiriendo que las fallas no tienen un impacto significativo en el tiempo de inspección. La línea roja punteada representa el efecto global promedio del PTI en todos los escenarios de prueba.
-
-<img src="texto/Picture10.png" align="center" width = "500px"/>
+ 
 Figura 10:  Gráfica de efectos de las interacciones sobre el Promedio de Tiempo de Inspección.
 La Figura 10 exhibe cómo el PTI es influenciado por la interacción de variables. Cada gráfico de la matriz muestra cómo cambia el PTI cuando dos variables interactúan entre sí, manteniendo la tercera constante.
 Por ejemplo, en el gráfico superior izquierdo, podemos ver que a medida que aumenta la cantidad de embarcaciones, el PTI disminuye, pero este efecto es modificado cuando se cambia la cantidad de drones. En el gráfico central de la fila inferior, la probabilidad de falla parece tener un impacto creciente en el PTI a medida que el número de drones aumenta.
@@ -122,7 +120,7 @@ Una vez realizado el experimento de este modelo manual/actual, se determina que 
 Considerando que el efecto global obtenido con la propuesta de este artículo fue de 75.58 segundos, el modelo de drones muestra una mejora significativa en la métrica de salida, disminuyendo el tiempo de inspección.
 Considerando los resultados obtenidos, se puede señalar que el modelo representa una tasa de variación del 70%, comprobado mediante un test estadístico (t-test pareado), demostrando que el rendimiento del modelo ha mejorado.
 
-<img src="texto/Picture11.png" align="center" width = "500px"/> 
+ 
 Figura 11:  Gráfica que incluye análisis de normalidad y Q-Q Plot.
 
 La Figura 11 compara la eficiencia de inspecciones usando botes y drones a través de histogramas y gráficos Q-Q. Los histogramas indican una mayor eficiencia de los drones, mostrando una distribución de tiempo más concentrada y reducida. Ambos gráficos Q-Q, con valores de R² cercanos a 1, sugieren distribuciones normales, apoyando estadísticamente la eficiencia mejorada con drones.
