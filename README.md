@@ -4,7 +4,7 @@
 
 **Eduardo Carrasco Vidal**, Oficial de Marina, Ingeniero Civil Industrial, Magister en Inteligencia Artificial
 
-Enlace a la publicación del documento en [Revista de Marina, Año CXXXVIII, Volumen 141, Número 999.]([https://revistamarina.cl/es/articulo/integracion-de-arquitecturas-de-ia-en-drones-para-fiscalizacion-pesquera] 
+Enlace a la publicación del documento en [Revista de Marina, Año CXXXVIII, Volumen 141, Número 999.](https://revistamarina.cl/es/articulo/integracion-de-arquitecturas-de-ia-en-drones-para-fiscalizacion-pesquera) 
 
 Enlace al [.pdf de la Publicación.](https://github.com/educarrascov/Prognosis_Maintenance/blob/main/PDF/2.%20Data%20Science%2C%20Mantenimiento%20predictivo.pdf)  
 
